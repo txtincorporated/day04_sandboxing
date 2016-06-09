@@ -1,27 +1,27 @@
-<!DOCTYPE html>
+<!--  --><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Handlebars Template</title>
   <script id="hello" type="text/x-handlebars-template">
     Hello {{who}}, my name is {{name}}, and I like {{what}}
-  </script>
+  </script><!-- template script; why in the head? -->
 </head>
 <body>
-  <div id="app"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <div id="app"></div><!-- display results -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script><!-- jQ lib; why in the body? -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script><!-- handlebars lib; why in the body? -->
   <script>
-    var data = {
-      who: "Students",
+    var data = {//data array stored as object
+      who: "Students",//data values named as properties in obj.
       name: "Ivan",
       what: "Apples"
     };
-    var appTemplate = $('#hello').html()
-    var compiledTemplate = Handlebars.compile(appTemplate);
-    var html = compiledTemplate(data);
-    $('#app').append(html);
-  </script>
+    var appTemplate = $('#hello').html()//where is template
+    var compiledTemplate = Handlebars.compile(appTemplate);//stored run command
+    var html = compiledTemplate(data);//stored output
+    $('#app').append(html);//display method
+  </script><!-- Handlebars script to populate template -->
 
 </body>
 </html>
