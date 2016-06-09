@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script><!-- CDN for jQuery -->
+
+  <script id="hello" type="text/template"><!-- Working template script -->
+    Hello world
+  </script>
+</head>
+<body>
+  <div id="app"></div><!-- Working <div> where template results will display -->
+
+  <script>
+    $('#app').append($('#hello').html());
+  </script><!-- jQuery script to process data into template -->
+
+</body>
+</html>
