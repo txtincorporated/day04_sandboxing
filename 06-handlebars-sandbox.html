@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>Grow Your Own Handlebars</title>
     <script id="greetings" type="text/x-handlebars-template">
-      {{greeting}} world
+      English: {{greetEng}} {{wldEng}}<br>
+      Spanish: {{greetSpan}} {{wldSpan}}<br>
+      Yoga class: {{greetYoga}} {{wldYoga}}
     </script>
   </head>
   <body>
@@ -15,7 +17,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
     <script>
       var object = {
-        greeting: "Hello",
+        greetEng: "Hello",
+        greetSpan: "Hola",
+        greetYoga: "Namaste",
+        wldEng: "world",
+        wldSpan: "mundo",
+        wldYoga: "you guys"
       }
       var blankTplt = $('#greetings').html();
       var doneTplt = Handlebars.compile(blankTplt);
