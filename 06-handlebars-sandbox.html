@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Grow Your Own Handlebars</title>
+    <script id="greetings" type="text/x-handlebars-template">
+      {{greeting}} world
+    </script>
+  </head>
+  <body>
+    <div id="populated">
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+    <script>
+      var object = {
+        greeting: "Hello",
+      }
+      var blankTplt = $('#greetings').html();
+      var doneTplt = Handlebars.compile(blankTplt);
+      var finito = doneTplt(object);
+      console.log(finito);
+      $('#populated').append(finito);
+    </script>
+  </body>
+</html>
