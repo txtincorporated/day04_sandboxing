@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+  <link rel="stylesheet" type="text/css" href="style-for-05.css">
+  <script id="hello" type="text/x-handlebars-template"><!-- template w/ labels for markup-escaped and -unescaped versions of the output (why in head?!) -->
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+    <p><br></p>
+    <p><span class='label'>Double (i.e., escaped): </span> {{puppy_double}}</p>//<!-- http://barkingroyalty.com/wp-content/uploads/2015/12/Dachshund-puppy.jpg -->
+    <p><span class='label'>Triple (i.e., renders HTML):</span> {{{puppy_triple}}}</p><!-- http://teddybearpuppydogs.com/wp-content/uploads/2015/08/cute-teddy-bear-puppies.jpg -->
+  </script><!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script> <!-- jQ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script><!-- HB -->
+  <script>
+    var data = {//data contains identical values for escaped and unescaped versions to demonstrate that the difference is not in the value but the interpretation
+      who: "Students",
+      name: "Ivan",
+      what: "Apples",
+      puppy_double: "Here is bold text: <b>I'm bold!</b><br>",
+      puppy_triple: "Here is bold text: <b>I'm bold!</b><br>",
+    };
+    var appTemplate = $('#hello').html()// same drill as last four files
+    var compiledTemplate = Handlebars.compile(appTemplate);//same drill as last file
+    var html = compiledTemplate(data);//yep
+    $('#app').append(html);//right
+  </script>
+
+</body>
+</html>
