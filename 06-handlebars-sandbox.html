@@ -4,31 +4,51 @@
     <meta charset="utf-8">
     <title>Grow Your Own Handlebars</title>
     <script id="greetings" type="text/x-handlebars-template">
-      English: {{greetEng}} {{wldEng}}<br>
-      Spanish: {{greetSpan}} {{wldSpan}}<br>
-      Yoga class: {{greetYoga}} {{wldYoga}}
+      {{language}}: {{greet}} {{wld}}<!-- TODO: Set up .each() in processor script -->
     </script>
   </head>
   <body>
+    <select class="chooser" name="Languages">
+      <option value="blank">--Choose language--</option><!-- TODO: fix this so it defaults back to here each time user is done selecting -->
+      <option value="eng">English</option>
+      <option value="span">Spanish</option>
+      <option value="yoga">Yoga class</option>
+    </select>
     <div id="populated">
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
     <script>
-      var object = {
-        greetEng: "Hello",
-        greetSpan: "Hola",
-        greetYoga: "Namaste",
-        wldEng: "world",
-        wldSpan: "mundo",
-        wldYoga: "you guys"
-      }
+      var translations = [];
+      var objects = [
+        {
+          lang: "eng",
+          language: "English",
+          greet: "Hello",
+          wld: "world",
+        }
+        {
+          lang: "span",
+          language: "Spanish",
+          greet: "Hola",
+          wld: "mundo",
+        },
+        {
+          lang: "yoga",
+          language: "Yoga class",
+          greet: "Namaste",
+          wld: "you guys"
+        }
+      ]
       var blankTplt = $('#greetings').html();
+      /* TODO: .each() method here? */
       var doneTplt = Handlebars.compile(blankTplt);
       var finito = doneTplt(object);
-      console.log(finito);
-      $('#populated').append(finito);
+      // console.log(finito);
+      $('translations').push(finito);
+      /* TODO: add method for user selection to be displayed either by pulling from translations array on selection or by toggling display: none/inline */
     </script>
   </body>
 </html>
+<!--  -->
